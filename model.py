@@ -51,6 +51,8 @@ DEFAULT_BASE_MODEL_URL = 'DEFAULT_BASE_MODEL_URL_PLACEHOLDER'
 
 class Model:
     def __init__(self,
+                 base_model_repo,
+                 base_model_filename,
                  model_config_path: str = 'ControlNet/models/cldm_v15.yaml',
                  model_dir: str = 'models'):
         self.device = torch.device(
@@ -64,8 +66,8 @@ class Model:
         self.model_dir.mkdir(exist_ok=True, parents=True)
 
         self.download_models()
-        self.set_base_model(DEFAULT_BASE_MODEL_REPO,
-                            DEFAULT_BASE_MODEL_FILENAME)
+        self.set_base_model(base_model_repo,
+                            base_model_filename)
 
     def set_base_model(self, model_id: str, filename: str) -> str:
         if not model_id or not filename:

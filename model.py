@@ -73,9 +73,9 @@ class Model:
         if not model_id or not filename:
             return self.base_model_url
         base_model_url = hf_hub_url(model_id, filename)
-        # if base_model_url != self.base_model_url:
-        #     self.load_base_model(base_model_url)
-        self.base_model_url = base_model_url
+        if base_model_url != self.base_model_url:
+            self.load_base_model(base_model_url)
+            self.base_model_url = base_model_url
         return self.base_model_url
 
     def download_base_model(self, model_url: str) -> pathlib.Path:

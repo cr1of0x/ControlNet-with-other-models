@@ -32,9 +32,11 @@ class Predictor(BasePredictor):
         scale = 12
         seed = 1337
         eta = 0
-        boyResult = manModel.process_pose(img, prompt, a_prompt, n_prompt,
+        outputs = manModel.process_pose(img, prompt, a_prompt, n_prompt,
                      num_samples, image_resolution, detect_resolution,
                      ddim_steps, scale, seed, eta)
-        # processed_input = preprocess(image)
-        # output = self.model(processed_image, scale)
-        # return postprocess(output)
+        outputs = [Image.fromarray(output) for output in outputs]
+        # save outputs to file
+        outputs = [output.save(f"tmp/output_{i}.png") for i, output in enumerate(outputs)]
+        # return paths to output files
+        return [Path(f"tmp/output_{i}.png") for i in range(len(outputs))]

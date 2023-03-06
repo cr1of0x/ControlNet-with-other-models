@@ -32,7 +32,7 @@ class Predictor(BasePredictor):
         scale = 12
         seed = 1337
         eta = 0
-        outputs = manModel.process_pose(img, prompt, a_prompt, n_prompt,
+        outputs = self.manModel.process_pose(img, prompt, a_prompt, n_prompt,
                      num_samples, image_resolution, detect_resolution,
                      ddim_steps, scale, seed, eta)
         outputs = [Image.fromarray(output) for output in outputs]

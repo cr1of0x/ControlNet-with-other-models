@@ -35,8 +35,6 @@ class Predictor(BasePredictor):
         outputs = self.manModel.process_pose(img, prompt, a_prompt, n_prompt,
                      num_samples, image_resolution, detect_resolution,
                      ddim_steps, scale, seed, eta)
-        outputs = [Image.fromarray(output) for output in outputs]
-        # save outputs to file
-        outputs = [output.save(f"tmp/output_{i}.png") for i, output in enumerate(outputs)]
-        # return paths to output files
-        return [Path(f"tmp/output_{i}.png") for i in range(len(outputs))]
+        boy_image = cv2.cvtColor(outputs[1], cv2.COLOR_BGR2RGB)
+        cv2.imwrite("output.png", boy_image)
+        return Path("output.png")

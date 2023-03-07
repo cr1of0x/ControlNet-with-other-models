@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 class Predictor(BasePredictor):
     def setup(self):
         """Load the model into memory to make running multiple predictions efficient"""
-        self.womanModel = Model('sd-dreambooth-library/taylorswift', 'Taylor Berry.ckpt')
+        self.womanModel = Model('sd-dreambooth-library/taylorswift', 'Taylor_Berry.ckpt')
         self.girlModel = Model('criofox/MKENNA_3771', 'MKENNA_3371.ckpt')
         self.boyModel = Model('criofox/MAKAL_3371', 'MAKAL_3371.ckpt')
         self.manModel = Model('criofox/KEAR_3371', 'KEAR_3371.ckpt')

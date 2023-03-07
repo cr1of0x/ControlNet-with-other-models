@@ -28,7 +28,8 @@ class Predictor(BasePredictor):
         shot: str = Input(description="close, full, medium", default="medium"),
         environment: str = Input(description="environment", default="hillside, green grass, sunny day"),
         isWarmup: str = Input(description="need be setted false", default="false"),
-        characters: str = Input(description="secondary characters", default="sheeps")
+        characters: str = Input(description="secondary characters", default="sheeps"),
+        pose: str = Input(description="sitting, standing", default="sitting")
     ) -> Path:
         """Run a single prediction on the model"""
         characters_map = {
@@ -67,7 +68,7 @@ class Predictor(BasePredictor):
             return
         
         prompt = f"{character} as {description}, {styles_map[style]}, (((white shirt, white pants))), {emotions_map[emotion]}, on background {environment}, {characters}"
-        pose = cv2.imread(poses_map[shot][pose], 0)
+        pose_input = cv2.imread(poses_map[shot][pose], 0)
         n_prompt = "Ugly, lowres, duplicate, morbid, mutilated, out of frame, extra fingers, extra limbs, extra legs, extra heads, extra arms, extra breasts, extra nipples, extra head, extra digit, poorly drawn hands, poorly drawn face, mutation, mutated hands, bad anatomy, long neck, signature, watermark, username, blurry, artist name, deformed, distorted fingers, distorted limbs, distorted legs, distorted heads, distorted arms, distorted breasts, distorted nipples, distorted head, distorted digit"
         num_samples = 1
         image_resolution = 768
@@ -75,7 +76,7 @@ class Predictor(BasePredictor):
         ddim_steps = 20
         scale = 12
         eta = 0
-        outputs = characters_map[character].process_pose(pose, prompt, a_prompt, n_prompt,
+        outputs = characters_map[character].process_pose(pose_input, prompt, a_prompt, n_prompt,
                      num_samples, image_resolution, detect_resolution,
                      ddim_steps, scale, seed, eta)
         boy_image = cv2.cvtColor(outputs[1], cv2.COLOR_BGR2RGB)

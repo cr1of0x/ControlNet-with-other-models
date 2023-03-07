@@ -58,7 +58,7 @@ class Predictor(BasePredictor):
             },
             'close': {
                 'sitting': './poses/close_sitting_standing.png', 
-                'standing': './poses/close_sitting_standing.png''
+                'standing': './poses/close_sitting_standing.png'
             }
         }         
         

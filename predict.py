@@ -27,7 +27,8 @@ class Predictor(BasePredictor):
         emotion: str = Input(description="fun or normal", default="normal"),
         shot: str = Input(description="close, full, medium", default="medium"),
         environment: str = Input(description="environment", default="hillside, green grass, sunny day"),
-        isWarmup: str = Input(description="need be setted false", default="false")
+        isWarmup: str = Input(description="need be setted false", default="false"),
+        characters: str = Input(description="secondary characters", default="sheeps")
     ) -> Path:
         """Run a single prediction on the model"""
         characters_map = {

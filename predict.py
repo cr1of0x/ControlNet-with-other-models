@@ -29,7 +29,7 @@ class Predictor(BasePredictor):
         environment: str = Input(description="environment", default="hillside, green grass, sunny day"),
         isWarmup: str = Input(description="need be setted false", default="false"),
         characters: str = Input(description="secondary characters", default="sheeps"),
-        pose: str = Input(description="sitting, standing", default="sitting")
+        pose: str = Input(description="sitting, standing, fighting", default="sitting")
     ) -> Path:
         """Run a single prediction on the model"""
         characters_map = {
@@ -52,15 +52,18 @@ class Predictor(BasePredictor):
         poses_map = { 
             'medium': {
                 'sitting': './poses/sitting_medium.png', 
-                'standing': './poses/standing_medium.png'
+                'standing': './poses/standing_medium.png',
+                'fighting': './poses/fight_medium.png'
             },
             'full': {
                 'sitting': './poses/sitting_full.png', 
-                'standing': './poses/standing_full.png'
+                'standing': './poses/standing_full.png',
+                'fighting': './poses/fight_full.png'
             },
             'close': {
                 'sitting': './poses/close_sitting_standing.png', 
-                'standing': './poses/close_sitting_standing.png'
+                'standing': './poses/close_sitting_standing.png',
+                'fighting': './poses/fight_close.png'
             }
         }         
         

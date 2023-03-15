@@ -53,17 +53,50 @@ class Predictor(BasePredictor):
             'medium': {
                 'sitting': './poses/sitting_medium.png', 
                 'standing': './poses/standing_medium.png',
-                'fighting': './poses/fight_medium.png'
+                'fighting': './poses/fight_medium.png',
+                'sleeping': './poses/sleep_medium.png',
+                'standing_profile': './poses/stand_profile_medium.png',
+                'standing_back': './poses/stand_back_medium.png',
+                'sitting_profile': './poses/sit_profile_medium.png',
+                'screaming': './poses/scream_medium.png',
+                'running_right': './poses/run_right_medium.png',
+                'running_left': './poses/run_left_medium.png',
+                'reading': './poses/read_medium.png',
+                'going_right': './poses/go_right_medium.png',
+                'going_left': './poses/go_left_medium.png',
+                'crying': './poses/cry_medium.png',
             },
             'full': {
                 'sitting': './poses/sitting_full.png', 
                 'standing': './poses/standing_full.png',
-                'fighting': './poses/fight_full.png'
+                'fighting': './poses/fight_full.png',
+                'sleeping': './poses/sleep_full.png',
+                'standing_profile': './poses/stand_profile_full.png',
+                'standing_back': './poses/stand_back_full.png',
+                'sitting_profile': './poses/sit_profile_full.png',
+                'screaming': './poses/scream_full.png',
+                'running_right': './poses/run_right_full.png',
+                'running_left': './poses/run_left_full.png',
+                'reading': './poses/read_full.png',
+                'going_right': './poses/go_right_full.png',
+                'going_left': './poses/go_left_full.png',
+                'crying': './poses/cry_full.png',
             },
             'close': {
                 'sitting': './poses/close_sitting_standing.png', 
                 'standing': './poses/close_sitting_standing.png',
-                'fighting': './poses/fight_close.png'
+                'fighting': './poses/fight_close.png',
+                'sleeping': './poses/sleep_close.png',
+                'standing_profile': './poses/stand_profile_close.png',
+                'standing_back': './poses/stand_back_close.png',
+                'sitting_profile': './poses/sit_profile_close.png',
+                'screaming': './poses/scream_close.png',
+                'running_right': './poses/run_right_close.png',
+                'running_left': './poses/run_left_close.png',
+                'reading': './poses/read_close.png',
+                'going_right': './poses/go_right_close.png',
+                'going_left': './poses/go_left_close.png',
+                'crying': './poses/cry_close.png',
             }
         }         
         

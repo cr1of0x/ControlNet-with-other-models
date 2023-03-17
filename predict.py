@@ -102,7 +102,7 @@ class Predictor(BasePredictor):
             return
         
         prompt = f"{character} as {description}, {styles_map[style]}, (((white shirt, white pants))), {emotions_map[emotion]}, on background {environment}, {characters}"
-        pose_input = cv2.imread(poses_map[shot][pose], 0) if reference.strip() != "" else reference
+        pose_input = cv2.imread(poses_map[shot][pose], 0) if reference.strip() != "" else cv2.imread(reference, 0)
         n_prompt = "Ugly, lowres, duplicate, morbid, mutilated, out of frame, extra fingers, extra limbs, extra legs, extra heads, extra arms, extra breasts, extra nipples, extra head, extra digit, poorly drawn hands, poorly drawn face, mutation, mutated hands, bad anatomy, long neck, signature, watermark, username, blurry, artist name, deformed, distorted fingers, distorted limbs, distorted legs, distorted heads, distorted arms, distorted breasts, distorted nipples, distorted head, distorted digit"
         a_prompt = ""
         num_samples = 1

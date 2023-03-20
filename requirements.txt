@@ -19,3 +19,4 @@ torchvision==0.14.1
 transformers==4.26.1
 xformers==0.0.16
 yapf==0.32.0
+requests==2.25.1

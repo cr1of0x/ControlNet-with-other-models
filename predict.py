@@ -34,7 +34,7 @@ class Predictor(BasePredictor):
         environment: str = Input(description="environment", default="hillside, green grass, sunny day"),
         isWarmup: str = Input(description="need be setted false", default="false"),
         characters: str = Input(description="secondary characters", default="sheeps"),
-        pose: str = Input(description="sitting, standing, fighting, sleeping, standing_profile, standing_back, sitting_profile, screaming, running_right, running_left, reading, going_right, going_left, crying", default="sitting")
+        pose: str = Input(description="sitting, standing, fighting, sleeping, standing_profile, standing_back, sitting_profile, screaming, running_right, running_left, reading, going_right, going_left, crying", default="sitting"),
         reference: str = Input(description="reference image", default=""),
     ) -> Path:
         """Run a single prediction on the model"""

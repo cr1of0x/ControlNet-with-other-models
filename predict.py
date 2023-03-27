@@ -18,15 +18,15 @@ def get_img_by_url(url):
 class Predictor(BasePredictor):
     def setup(self):
         """Load the model into memory to make running multiple predictions efficient"""
-        self.womanModel = Model('sd-dreambooth-library/taylorswift', 'Taylor_Berry.ckpt')
-        self.girlModel = Model('criofox/MKENNA_3771', 'MKENNA_3371.ckpt')
-        self.boyModel = Model('criofox/MAKAL_3371', 'MAKAL_3371.ckpt')
-        self.manModel = Model('criofox/KEAR_3371', 'KEAR_3371.ckpt')
+        self.womanModel = Model('criofox/TAYSWIFT_1337_169', 'TAYSWIFT__1337_169.ckpt')
+        self.girlModel = Model('criofox/MKENNA_1337_169', 'MKENNA__1337_169.ckpt')
+        self.boyModel = Model('criofox/MAKAL_1337_169', 'MAKAL__1337_169.ckpt')
+        self.manModel = Model('criofox/KEAR_1337_169', 'KEAR__1337_169.ckpt')
 
     def predict(
         self,
         style: str = Input(description="Style of model", default='painting'),
-        character: str = Input(description="Character instance", default='MKENNA_3371'),
+        character: str = Input(description="Character instance", default='MKENNA_1337_169'),
         description: str = Input(description='Character description(shepard boy)', default="shepard girl"),
         seed: str = Input(description="seed", default="1337"),
         emotion: str = Input(description="fun or normal", default="normal"),
@@ -39,10 +39,10 @@ class Predictor(BasePredictor):
     ) -> Path:
         """Run a single prediction on the model"""
         characters_map = {
-            'MAKAL_3371': self.boyModel,
-            'taySwift': self.womanModel,
-            'KEAR_3371': self.manModel,
-            'MKENNA_3371': self.girlModel
+            'MAKAL_1337_169': self.boyModel,
+            'TAYSWIFT_1337_169': self.womanModel,
+            'KEAR_1337_169': self.manModel,
+            'MKENNA_1337_169': self.girlModel
         }
 
         emotions_map = {
@@ -116,13 +116,13 @@ class Predictor(BasePredictor):
         if isWarmup=="true":
             return
         
-        prompt = f"{character} as {description}, {styles_map[style]}, (((white shirt, white pants))), {emotions_map[emotion]}, on background {environment}, {characters}"
+        prompt = f"{character} as {description}, {styles_map[style]}, {emotions_map[emotion]}, on background {environment}, {characters}"
         pose_input = cv2.imread(poses_map[shot][pose], 0) if reference.strip() == "" else get_img_by_url(reference)
         n_prompt = "Ugly, lowres, duplicate, morbid, mutilated, out of frame, extra fingers, extra limbs, extra legs, extra heads, extra arms, extra breasts, extra nipples, extra head, extra digit, poorly drawn hands, poorly drawn face, mutation, mutated hands, bad anatomy, long neck, signature, watermark, username, blurry, artist name, deformed, distorted fingers, distorted limbs, distorted legs, distorted heads, distorted arms, distorted breasts, distorted nipples, distorted head, distorted digit"
         a_prompt = ""
         num_samples = 1
-        image_resolution = 768
-        detect_resolution = 768
+        image_resolution = 720
+        detect_resolution = 720
         ddim_steps = 20
         scale = 12
         eta = 0

@@ -52,9 +52,7 @@ class Predictor(BasePredictor):
             'joy': 'fun and kind eyes, joy, joyful expression, smiling face, laughing out loud, feeling ecstatic',
             'anger': 'anger, angry expression, frowning, gritting teeth, clenching fists, shaking with rage, angry eyes, wrinkled',
             'weeping': 'lowered lip corners, sad, weeping expression, crying profusely, wiping tears, hunched over, feeling heartbroken',
-            'surprise': 'surprised, ajar mouth, dramatic, widest eyes, happy, surprise, feeling startled, shocked',
             'sad': 'sad, sad face, lowered lip corners, no smile, sad expression, tears, droopy and sad eyes, feeling despondent, upset',
-            'cry': 'tears, crying, cry, upset, very sad, lowered lip corners, tragedy, trogic, drama, no smile, opened mouth, sad and overwhelmed',
             'surprise': 'surprised, ajar mouth, dramatic, widest eyes, happy, surprise, feeling startled, shocked',
             'fear': 'fear, fearful, curve, shock, shocked, sad, scared, wide opened eyes, widest eyes, opened mouth, scared',
         }

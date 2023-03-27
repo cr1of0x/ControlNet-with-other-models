@@ -18,10 +18,10 @@ def get_img_by_url(url):
 class Predictor(BasePredictor):
     def setup(self):
         """Load the model into memory to make running multiple predictions efficient"""
-        self.womanModel = Model('criofox/TAYSWIFT_1337_169', 'TAYSWIFT__1337_169.ckpt')
-        self.girlModel = Model('criofox/MKENNA_1337_169', 'MKENNA__1337_169.ckpt')
-        self.boyModel = Model('criofox/MAKAL_1337_169', 'MAKAL__1337_169.ckpt')
-        self.manModel = Model('criofox/KEAR_1337_169', 'KEAR__1337_169.ckpt')
+        self.womanModel = Model('criofox/TAYSWIFT_1337_169', 'TAYSWIFT_1337_169.ckpt')
+        self.girlModel = Model('criofox/MKENNA_1337_169', 'MKENNA_1337_169.ckpt')
+        self.boyModel = Model('criofox/MAKAL_1337_169', 'MAKAL_1337_169.ckpt')
+        self.manModel = Model('criofox/KEAR_1337_169', 'KEAR_1337_169.ckpt')
 
     def predict(
         self,

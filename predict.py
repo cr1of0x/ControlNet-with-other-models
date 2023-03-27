@@ -126,7 +126,7 @@ class Predictor(BasePredictor):
         ddim_steps = 20
         scale = 12
         eta = 0
-        outputs = characters_map[character].process_pose(pose_input, prompt, a_prompt, n_prompt,
+        outputs = characters_map[character].process_depth(pose_input, prompt, a_prompt, n_prompt,
                      num_samples, image_resolution, detect_resolution,
                      ddim_steps, scale, seed, eta)
         boy_image = cv2.cvtColor(outputs[1], cv2.COLOR_BGR2RGB)

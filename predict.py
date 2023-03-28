@@ -34,9 +34,11 @@ class Predictor(BasePredictor):
         environment: str = Input(description="environment", default="hillside, green grass, sunny day"),
         isWarmup: str = Input(description="need be setted false", default="false"),
         characters: str = Input(description="secondary characters", default="sheeps"),
-        pose: str = Input(description="sitting, standing, fighting, sleeping, standing_profile, standing_back, sitting_profile, screaming, running_right, running_left, reading, going_right, going_left, crying", default="sitting"),
         reference: str = Input(description="reference image", default=""),
     ) -> Path:
+        if isWarmup=="true":
+            return
+
         """Run a single prediction on the model"""
         characters_map = {
             'MAKAL_1337_169': self.boyModel,
@@ -63,22 +65,30 @@ class Predictor(BasePredictor):
         }
 
         poses_map = { 
-            'medium': {
-                'standing': './poses/standing_medium.png',
+            'KEAR_1337_169': {
+                'close': './poses/man-close.png',
+                'full': './poses/man-full.png',
+                'medium': './poses/man-medium.png',
             },
-            'full': {
-                'standing': './poses/standing_full.png',
+            'TAYSWIFT_1337_169': {
+                'close': './poses/woman-close.png',
+                'full': './poses/woman-full.png',
+                'medium': './poses/woman-medium.png',
             },
-            'close': {
-                'standing': './poses/close_sitting_standing.png',
-            }
+            'MKENNA_1337_169': {
+                'close': './poses/girl-close.png',
+                'full': './poses/girl-full.png',
+                'medium': './poses/girl-medium.png',
+            },
+            'MAKAL_1337_169': {
+                'close': './poses/boy-close.png',
+                'full': './poses/boy-full.png',
+                'medium': './poses/boy-medium.png',
+            },
         }         
         
-        if isWarmup=="true":
-            return
-        
         prompt = f"{character} as {description}, {styles_map[style]}, {emotions_map[emotion]}, on background {environment}, {characters}"
-        pose_input = cv2.imread(poses_map[shot][pose], 0) if reference.strip() == "" else get_img_by_url(reference)
+        pose_input = cv2.imread(poses_map[character][shot], 0) if reference.strip() == "" else get_img_by_url(reference)
         n_prompt = "Ugly, lowres, duplicate, morbid, mutilated, out of frame, extra fingers, extra limbs, extra legs, extra heads, extra arms, extra breasts, extra nipples, extra head, extra digit, poorly drawn hands, poorly drawn face, mutation, mutated hands, bad anatomy, long neck, signature, watermark, username, blurry, artist name, deformed, distorted fingers, distorted limbs, distorted legs, distorted heads, distorted arms, distorted breasts, distorted nipples, distorted head, distorted digit"
         a_prompt = ""
         num_samples = 1

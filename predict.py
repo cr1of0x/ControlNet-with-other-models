@@ -21,7 +21,7 @@ class Predictor(BasePredictor):
         self.womanModel = Model('criofox/TAYSWIFT_1337_169', 'TAYSWIFT_1337_169.ckpt')
         self.girlModel = Model('criofox/MKENNA_1337_169', 'MKENNA_1337_169.ckpt')
         self.boyModel = Model('criofox/MAKAL_1337_169', 'MAKAL_1337_169.ckpt')
-        self.manModel = Model('criofox/KEAR_1337_169', 'KEAR_1337_169.ckpt')
+        self.manModel = Model('criofox/NONAME_1337_169', 'NONAME_1337_169.ckpt')
 
     def predict(
         self,
@@ -43,7 +43,7 @@ class Predictor(BasePredictor):
         characters_map = {
             'MAKAL_1337_169': self.boyModel,
             'TAYSWIFT_1337_169': self.womanModel,
-            'KEAR_1337_169': self.manModel,
+            'NONAME_1337_169': self.manModel,
             'MKENNA_1337_169': self.girlModel
         }
 
@@ -65,7 +65,7 @@ class Predictor(BasePredictor):
         }
 
         poses_map = { 
-            'KEAR_1337_169': {
+            'NONAME_1337_169': {
                 'close': './poses/man-close.png',
                 'full': './poses/man-full.png',
                 'medium': './poses/man-medium.png',
